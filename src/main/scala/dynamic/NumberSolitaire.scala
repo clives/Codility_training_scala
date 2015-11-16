@@ -1,9 +1,11 @@
+package dynamic
+
 import scala.collection.JavaConversions._
 
 //course: https://codility.com/programmers/lessons/16
 //task: https://codility.com/programmers/task/number_solitaire
 
-object Solution {
+object NumberSolitaire {
     
     def solutionStepByStep( A: Array[Int], lastresult: List[Int], n: Int):List[Int]={
         val result= if( n <= 7){
@@ -13,9 +15,9 @@ object Solution {
                         else first 
             }
         }else{
-            A(n-1)+lastresult.take(6).reduceLeft(_ max _)
+            A(n-1)+lastresult.max
         }
-        result :: lastresult
+        result :: lastresult.take(5)
     }
     
     def solution(A: Array[Int]): Int = {
